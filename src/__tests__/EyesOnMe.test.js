@@ -14,7 +14,7 @@ test("focusing the button triggers console output", () => {
   console.log = jest.fn();
 
   const button = screen.queryByText(/Eyes on me/);
-  fireEvent.focus(button);
+  fireEvent.focusIn(button);
 
   expect(console.log).toHaveBeenCalled();
   expect(console.log.mock.calls[0][0]).toBe("Good!");
@@ -24,7 +24,7 @@ test("removing focus (blur) on the button triggers console output", () => {
   console.log = jest.fn();
 
   const button = screen.queryByText(/Eyes on me/);
-  fireEvent.blur(button);
+  fireEvent.focusOut(button);
 
   expect(console.log).toHaveBeenCalled();
   expect(console.log.mock.calls[0][0]).toBe("Hey! Eyes on me!");
